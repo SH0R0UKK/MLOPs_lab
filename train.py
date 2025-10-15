@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 import json
 import seaborn as sns
@@ -15,7 +15,7 @@ y = df['quality']  # Target variable is 'quality'
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train model
-model = LogisticRegression(random_state=42, max_iter=2000)
+model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # Make predictions on test set
@@ -32,14 +32,15 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(cm, annot=True, fmt='d', xticklabels=model.classes_, yticklabels=model.classes_)
 plt.xlabel('Predicted Quality')
 plt.ylabel('Actual Quality')
-plt.title('Wine Quality Prediction Confusion Matrix')
+plt.title('Wine Quality Prediction - Random Forest')
 plt.savefig('confusion_matrix.png')
 plt.close()
 
 # Print feature importance
 feature_importance = pd.DataFrame({
     'feature': X.columns,
-    'importance': abs(model.coef_[0])
+    'importance': model.feature_importances_
 })
 print("\nFeature Importance:")
 print(feature_importance.sort_values('importance', ascending=False))
+
