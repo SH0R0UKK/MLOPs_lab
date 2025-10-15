@@ -15,12 +15,32 @@ stages:
   train:
     cmd: python train.py
     deps:
+<<<<<<< Updated upstream
+=======
+    - path: data/train_data.csv
+      hash: md5
+      md5: 4d2add4e187dbe59c9a36b6c4ba13221
+      size: 188871
+    - path: train.py
+      hash: md5
+      md5: 98c1837ceb686c104d74a2f0e1743d48
+      size: 554
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: 86b7b231dd9a41fd4ddc46062d103a3a
+      size: 19511633
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+>>>>>>> Stashed changes
     - path: data/wine_data_raw.csv
       hash: md5
       md5: 8305ad12adc54ba0fb0e7c3279c599c5
       size: 292287
     - path: train.py
       hash: md5
+<<<<<<< Updated upstream
       md5: cb1679b205f6eac50438c7fa1fccb659
       size: 1517
     outs:
@@ -32,3 +52,40 @@ stages:
       hash: md5
       md5: f4e3689ac998f234bbdbedb9d396255a
       size: 31
+=======
+      md5: 1e7021ded13467a026c1c5fc0cf79971
+      size: 1654
+    outs:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 9893044e31feffd6b5c0f5db19bec477
+      size: 47576
+    - path: data/train_data.csv
+      hash: md5
+      md5: 4d2add4e187dbe59c9a36b6c4ba13221
+      size: 188871
+  validate:
+    cmd: python validate.py
+    deps:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 9893044e31feffd6b5c0f5db19bec477
+      size: 47576
+    - path: models/model.joblib
+      hash: md5
+      md5: 86b7b231dd9a41fd4ddc46062d103a3a
+      size: 19511633
+    - path: validate.py
+      hash: md5
+      md5: 43e0bcae7cc70f3b93fcd7ae3d5e6d87
+      size: 1011
+    outs:
+    - path: confusion_matrix.png
+      hash: md5
+      md5: 330ae59953c8149b29243bfeadaa6a5c
+      size: 34853
+    - path: metrics.json
+      hash: md5
+      md5: da50ca3c3e2dfcdab6340475846f6922
+      size: 32
+>>>>>>> Stashed changes
