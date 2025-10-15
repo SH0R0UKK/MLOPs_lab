@@ -26,8 +26,8 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 423c8bee5e8617e8ee99480a68d433e8
-      size: 2079
+      md5: f4b32ebe870627a272421fdb42171235
+      size: 581611
   preprocess:
     cmd: python preprocess.py
     deps:
@@ -57,8 +57,8 @@ stages:
       size: 47576
     - path: models/model.joblib
       hash: md5
-      md5: 423c8bee5e8617e8ee99480a68d433e8
-      size: 2079
+      md5: f4b32ebe870627a272421fdb42171235
+      size: 581611
     - path: validate.py
       hash: md5
       md5: 43e0bcae7cc70f3b93fcd7ae3d5e6d87
