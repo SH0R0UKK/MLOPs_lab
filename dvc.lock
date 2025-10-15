@@ -15,20 +15,60 @@ stages:
   train:
     cmd: python train.py
     deps:
+    - path: data/train_data.csv
+      hash: md5
+      md5: 4d2add4e187dbe59c9a36b6c4ba13221
+      size: 188871
+    - path: train.py
+      hash: md5
+      md5: 62b76eaf69b77e9fd23d2d871defb6af
+      size: 565
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: 423c8bee5e8617e8ee99480a68d433e8
+      size: 2079
+  preprocess:
+    cmd: python preprocess.py
+    deps:
     - path: data/wine_data_raw.csv
       hash: md5
       md5: 8305ad12adc54ba0fb0e7c3279c599c5
       size: 292287
-    - path: train.py
+    - path: preprocess.py
       hash: md5
-      md5: 41bb6d281206a07aaa71f6ac3301748d
-      size: 1500
+      md5: 1e7021ded13467a026c1c5fc0cf79971
+      size: 1654
+    outs:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 9893044e31feffd6b5c0f5db19bec477
+      size: 47576
+    - path: data/train_data.csv
+      hash: md5
+      md5: 4d2add4e187dbe59c9a36b6c4ba13221
+      size: 188871
+  validate:
+    cmd: python validate.py
+    deps:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 9893044e31feffd6b5c0f5db19bec477
+      size: 47576
+    - path: models/model.joblib
+      hash: md5
+      md5: 423c8bee5e8617e8ee99480a68d433e8
+      size: 2079
+    - path: validate.py
+      hash: md5
+      md5: 43e0bcae7cc70f3b93fcd7ae3d5e6d87
+      size: 1011
     outs:
     - path: confusion_matrix.png
       hash: md5
-      md5: 5e79974ea21de27ae1d47c9fe3fe2203
-      size: 35337
+      md5: 88b7a77d651372a001c68ad02c83a203
+      size: 34253
     - path: metrics.json
       hash: md5
-      md5: 1de0c7e5a377b85e2e14eee320274ea2
+      md5: 6404a20d7d50a5b4f20c533cf4d62d0a
       size: 32
