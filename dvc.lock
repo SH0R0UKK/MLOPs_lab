@@ -21,14 +21,14 @@ stages:
       size: 292287
     - path: train.py
       hash: md5
-      md5: cb1679b205f6eac50438c7fa1fccb659
-      size: 1517
+      md5: 41fb10ae145e0fd1b06e8524117bd15e
+      size: 1329
     outs:
     - path: confusion_matrix.png
       hash: md5
-      md5: 0a06abacac35598c3f8dd9bc617d9170
-      size: 35682
+      md5: e64d2b4f6a04ea0b49b57a1361af6645
+      size: 34408
     - path: metrics.json
       hash: md5
-      md5: f4e3689ac998f234bbdbedb9d396255a
-      size: 31
+      md5: ca58c05d766a540e44c07436acb9c87a
+      size: 32
