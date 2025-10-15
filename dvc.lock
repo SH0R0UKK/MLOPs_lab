@@ -15,8 +15,6 @@ stages:
   train:
     cmd: python train.py
     deps:
-<<<<<<< Updated upstream
-=======
     - path: data/train_data.csv
       hash: md5
       md5: 4d2add4e187dbe59c9a36b6c4ba13221
@@ -33,28 +31,14 @@ stages:
   preprocess:
     cmd: python preprocess.py
     deps:
->>>>>>> Stashed changes
     - path: data/wine_data_raw.csv
       hash: md5
       md5: 8305ad12adc54ba0fb0e7c3279c599c5
       size: 292287
-    - path: train.py
+    - path: preprocess.py
       hash: md5
-<<<<<<< Updated upstream
-      md5: cb1679b205f6eac50438c7fa1fccb659
-      size: 1517
-    outs:
-    - path: confusion_matrix.png
-      hash: md5
-      md5: 0a06abacac35598c3f8dd9bc617d9170
-      size: 35682
-    - path: metrics.json
-      hash: md5
-      md5: f4e3689ac998f234bbdbedb9d396255a
-      size: 31
-=======
-      md5: 1e7021ded13467a026c1c5fc0cf79971
-      size: 1654
+      md5: eda4e95852effd1450f2284455500237
+      size: 1513
     outs:
     - path: data/test_data.csv
       hash: md5
@@ -88,4 +72,3 @@ stages:
       hash: md5
       md5: da50ca3c3e2dfcdab6340475846f6922
       size: 32
->>>>>>> Stashed changes
